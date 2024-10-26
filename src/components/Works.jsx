@@ -20,7 +20,22 @@ const ProjectCard = ({
       <Tilt
         options={{ max: 45, scale: 1, speed: 450 }}
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
-      ></Tilt>
+      >
+        <div className="relative w-full h-[230px]">
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover rounded-2xl"
+          />
+          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+            <div
+              onClick={() => window.open(source_code_link, "_blank")}
+              className="black-gradient w-10 h-10
+              rounded-full flex justify-center items-center cursor-pointer"
+            ></div>
+          </div>
+        </div>
+      </Tilt>
     </motion.div>
   );
 };
