@@ -16,7 +16,9 @@ const ServiceCard = ({ index, title, icon }) => {
         <div
           options={{ max: 45, scale: 1, speed: 450 }}
           className="bg-tertiary rounded-[20px] p-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-        ></div>
+        >
+          <img src={icon} alt={title} className="w-16 h-16 object-contain" />
+        </div>
       </motion.div>
     </Tilt>
   );
