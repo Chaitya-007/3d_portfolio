@@ -10,7 +10,7 @@ import {
 import CanvasLoader from "../Loader";
 
 const Ball = (props) => {
-  const [texture] = useTexture([props.imgUrl]);
+  const [decal] = useTexture([props.imgUrl]);
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.25} />
@@ -23,6 +23,7 @@ const Ball = (props) => {
           polygonOffsetFactor={-5}
           flatShading
         />
+        <Decal position={[0, 0, 1]} map={decal} />
       </mesh>
     </Float>
   );
