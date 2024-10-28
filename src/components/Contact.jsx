@@ -7,6 +7,10 @@ import emailjs from "@emailjs/browser";
 import { EarthCanvas } from "./canvas";
 import { slideIn } from "../utils/motion";
 
+// template_8129cjv
+// service_oejskms
+// suZjR-GLfE4gcYNh0
+
 const Contact = () => {
   const formRef = useRef();
 
