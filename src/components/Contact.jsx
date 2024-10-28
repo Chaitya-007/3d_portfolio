@@ -7,9 +7,9 @@ import emailjs from "@emailjs/browser";
 import { EarthCanvas } from "./canvas";
 import { slideIn } from "../utils/motion";
 
-// template_8129cjv
 // service_oejskms
 // suZjR-GLfE4gcYNh0
+// template_qzjnphr
 
 const Contact = () => {
   const formRef = useRef();
@@ -22,9 +22,46 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  const handleSubmit = (e) => {};
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_oejskms",
+        "template_qzjnphr",
+        {
+          from_name: form.name,
+          to_name: "Jungle Mangal",
+          from_email: form.email,
+          to_email: "chaitanyaasole@gmail.com",
+          message: form.message,
+        },
+        "suZjR-GLfE4gcYNh0"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you. I will get back to you soon as possible!");
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+          alert("Something went wrong. Please try again later!");
+        }
+      );
+  };
 
   return (
     <div
@@ -68,7 +105,7 @@ const Contact = () => {
             <textarea
               rows="7"
               name="message"
-              value={form.email}
+              value={form.message}
               onChange={handleChange}
               placeholder="What do you want to say"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none font-medium border-none "
